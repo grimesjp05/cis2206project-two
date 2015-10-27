@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import model.Magic;
 import model.IMagicDAO;
-import model.datastore.file.MagicDAO;
+import model.datastore.mysql.MagicDAO;
 
 /**
  * @author Jordan Grimes
@@ -38,7 +38,7 @@ public class MagicApp {
 
 			switch (choice) {
 			case "1":
-				System.out.println(cardList.toString());
+				System.out.println(cardList.retrieveAllRecords());
 				break;
 			case "2":
 				id = Validator.getInt(sc, "New card id: ");
@@ -77,7 +77,7 @@ public class MagicApp {
 				System.out.println("2 = Color");
 				System.out.println("3 = Expansion");
 				choice2 = sc.nextInt();
-				System.out.println(MagicDAO.sortCards(choice2));
+				System.out.println(cardList.sortCards(choice2));
 			case "7":
 			}
 		}

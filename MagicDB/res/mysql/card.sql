@@ -1,10 +1,11 @@
-use river;
-drop table if exists employee;
-create table employee (
-  empId int unsigned not null auto_increment,
-  lastName varchar(24) not null,
-  firstName varchar(18) not null,
-  homePhone varchar(14) not null,
-  salary double not null,
-  primary key(empId)
+use jordan;
+drop table if exists card;
+create table card (
+  id int unsigned not null auto_increment,
+  name varchar(40) not null,
+  cardType varchar(20) not null,
+  color varchar(5) not null,
+  expansion varchar(30) not null,
+  cIndex int(3) not null,
+  primary key(id)
 );

@@ -23,9 +23,6 @@ public interface IMagicDAO {
 
 	String toString();
 
-	static List<Magic> sortCards(int choice) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	List<Magic> sortCards(int choice);
 
 }

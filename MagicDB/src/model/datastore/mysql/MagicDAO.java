@@ -21,10 +21,10 @@ public class MagicDAO implements IMagicDAO {
 
 	@Override
 	public void createRecord(Magic card) {
-		final String QUERY = "insert into card (id, name, cardType, color, expansion, index) VALUES (?, ?, ?, ?, null)";
+		final String QUERY = "insert into card (id, name, cardType, color, expansion, cIndex) VALUES (null, ?, ?, ?, ?, ?)";
 
 		try (Connection con = DBConnection.getConnection(); PreparedStatement stmt = con.prepareStatement(QUERY);) {
-			stmt.setInt(1, card.getId());
+			stmt.setString(1, card.getName());
 			stmt.setString(2, card.getCardType());
 			stmt.setString(3, card.getColor());
 			stmt.setString(4, card.getExpansion());
@@ -39,7 +39,7 @@ public class MagicDAO implements IMagicDAO {
 
 	@Override
 	public Magic retrieveRecordById(int id) {
-		final String QUERY = "select id, name, cardType, color, expansion, index from card where name = " + id;
+		final String QUERY = "select id, name, cardType, color, expansion, cIndex from card where name = " + id;
 		// final String QUERY = "select id, name, cardType, color, expansion,
 		// index from card where id = ?";
 		Magic card = null;
@@ -63,7 +63,7 @@ public class MagicDAO implements IMagicDAO {
 	@Override
 	public List<Magic> retrieveAllRecords() {
 		final List<Magic> myList = new ArrayList<>();
-		final String QUERY = "select id, name, cardType, color, expansion, index from card";
+		final String QUERY = "select id, name, cardType, color, expansion, cIndex from card";
 
 		try (Connection con = DBConnection.getConnection(); PreparedStatement stmt = con.prepareStatement(QUERY)) {
 			if(DEBUG) System.out.println(stmt.toString());
@@ -71,7 +71,7 @@ public class MagicDAO implements IMagicDAO {
 			
 			while (rs.next()) {
 				myList.add(new Magic(rs.getInt("id"), rs.getString("name"), rs.getString("cardType"), rs.getString("color"),
-						rs.getString("expansion"), rs.getInt("index")));
+						rs.getString("expansion"), rs.getInt("cindex")));
 			}
 		} catch (SQLException ex) {
 			System.out.println("retrieveAllRecords SQLException: " + ex.getMessage());
@@ -82,7 +82,7 @@ public class MagicDAO implements IMagicDAO {
 
 	@Override
 	public void updateRecord(Magic updatedCard) {
-		final String QUERY = "update card set name=?, cardType=?, color=?, expansion=?, index=? where id=?";
+		final String QUERY = "update card set name=?, cardType=?, color=?, expansion=?, cIndex=? where id=?";
 
 		try (Connection con = DBConnection.getConnection(); PreparedStatement stmt = con.prepareStatement(QUERY)) {
 			stmt.setString(1, updatedCard.getName());
@@ -123,7 +123,7 @@ public class MagicDAO implements IMagicDAO {
 			System.out.println("deleteRecord SQLException: " + ex.getMessage());
 		}
 	}
-	
+	@Override
 	public List<Magic> sortCards(int choice) {
 		String QUERY = "";
 		final List<Magic> cards = new ArrayList<>();
