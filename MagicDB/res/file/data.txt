@@ -1,0 +1,2 @@
+2, Great-Horn Krushok,   Creature,   White,   Fate Reforged,13
+3, Earthen Arms,  Sorcery,  Green,  Battle for Zendikar,172
