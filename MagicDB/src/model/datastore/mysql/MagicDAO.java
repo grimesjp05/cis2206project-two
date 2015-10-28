@@ -71,7 +71,7 @@ public class MagicDAO implements IMagicDAO {
 			
 			while (rs.next()) {
 				myList.add(new Magic(rs.getInt("id"), rs.getString("name"), rs.getString("cardType"), rs.getString("color"),
-						rs.getString("expansion"), rs.getInt("cindex")));
+						rs.getString("expansion"), rs.getInt("cIndex")));
 			}
 		} catch (SQLException ex) {
 			System.out.println("retrieveAllRecords SQLException: " + ex.getMessage());
@@ -142,10 +142,10 @@ public class MagicDAO implements IMagicDAO {
 			
 			while (rs.next()) {
 				cards.add(new Magic(rs.getInt("id"), rs.getString("name"), rs.getString("cardType"), rs.getString("color"),
-						rs.getString("expansion"), rs.getInt("index")));
+						rs.getString("expansion"), rs.getInt("cIndex")));
 			}
 		} catch (SQLException ex) {
-			System.out.println("retrieveAllRecords SQLException: " + ex.getMessage());
+			System.out.println("sortCards SQLException: " + ex.getMessage());
 		}
 		return cards;
 	}
