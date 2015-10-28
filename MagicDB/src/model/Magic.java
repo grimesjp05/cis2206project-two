@@ -84,7 +84,7 @@ public class Magic {
 
 	@Override
 	public String toString() {
-		return String.format("%d, %s, %s, %s, %s, %d",this.getId(), this.getName(), this.getCardType(),
+		return String.format("\n%d, %s, %s, %s, %s, %d",this.getId(), this.getName(), this.getCardType(),
 				this.getColor(), this.getExpansion(), this.getIndex());
 	}
 }
