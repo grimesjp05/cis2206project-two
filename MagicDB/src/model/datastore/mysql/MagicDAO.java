@@ -124,14 +124,14 @@ public class MagicDAO implements IMagicDAO {
 		}
 	}
 	@Override
-	public List<Magic> sortCards(int choice) {
+	public List<Magic> sortCards(int choice2) {
 		String QUERY = "";
 		final List<Magic> cards = new ArrayList<>();
-		if (choice == 1 ) {
+		if (choice2 == 1 ) {
 			QUERY = "select * from card order by cardType";
-		} else if (choice == 2) {
+		} else if (choice2 == 2) {
 			QUERY = "select * from card order by color";
-		} else if (choice == 3) {
+		} else if (choice2 == 3) {
 			QUERY = "select * from card order by expansion";
 		} else {
 			System.out.println("Something Went Wrong");
