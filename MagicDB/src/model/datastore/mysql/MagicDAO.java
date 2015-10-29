@@ -149,7 +149,17 @@ public class MagicDAO implements IMagicDAO {
 		}
 		return cards;
 	}
-
+	
+	@Override 
+	public List<Magic> createDeck(int choice3) {
+		String QUERY = "";
+		final List<Magic> cards = new ArrayList<>();
+		if (choice3 == 1) {
+			QUERY = "select * from card where color = Green and cardType = Land";
+			QUERY = "select * from card where color = Green and cardType <> Land";
+		}
+	}
+ 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

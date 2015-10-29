@@ -23,6 +23,8 @@ public interface IMagicDAO {
 
 	String toString();
 
-	List<Magic> sortCards(int choice);
+	List<Magic> sortCards(int choice2);
+	
+	List<Magic> createDeck(int choice3);
 
 }

@@ -78,7 +78,18 @@ public class MagicApp {
 				System.out.println("3 = Expansion");
 				choice2 = sc.nextInt();
 				System.out.println(cardList.sortCards(choice2));
+				break;
 			case "7":
+				int choice3 = 0;
+				System.out.println("\nChoose a color:");
+				System.out.println("1 = Green");
+				System.out.println("2 = Black");
+				System.out.println("3 = Red");
+				System.out.println("4 = White");
+				System.out.println("5 = Blue");
+				choice3 = sc.nextInt();
+				System.out.println(cardList.createDeck(choice3));
+				break;
 			}
 		}
 	}
